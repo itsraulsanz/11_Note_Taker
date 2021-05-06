@@ -1,12 +1,17 @@
 // LOAD DATA
 const path = require("path");
 
+const dbFunctionality = require("../db/db")
+
 // ROUTING
 
 module.exports = (app) => {
 //GET "/api/notes" will respond with all the notes from db.json
 app.get("/api/notes", (request, response) => {
     console.log("get request made")
+    dbFunctionality.getAllNotes().then((notes) => {
+        return response.json(notes)
+    })
 })
 
 //POST "api/notes" add a note to the db.json
