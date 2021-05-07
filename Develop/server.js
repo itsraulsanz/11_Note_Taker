@@ -3,7 +3,7 @@
 const express = require('express');
 
 // Sets an initial port
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Tells node that we are creating an "express" server
 const app = express();
@@ -17,7 +17,7 @@ app.use(express.static('public'));
 // The below points our server to a series of "route" files.
 // These routes give our server a "map" of how to respond when users visit or request data from various URLs.
 
- require('./routes/apiRoutes')(app);
+require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
 
 // LISTENER

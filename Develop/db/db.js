@@ -1,6 +1,9 @@
 const util = require("util");
 const fs = require("fs");
 
+// Package to generate the ids
+const uuid = require("uuid");
+
 const readFileAsync = util.promisify(fs.readFile)
 const writeFileAsync = util.promisify(fs.writeFile)
 
@@ -16,7 +19,7 @@ class dbFunctionality {
 
     getAllNotes() {
         return this.readFile().then((dbNotes) => {
-
+            console.log(uuid.v1())
             let parsedDbNotes;
             try {
                 parsedDbNotes = [].concat(JSON.parse(dbNotes))
@@ -32,6 +35,17 @@ class dbFunctionality {
         //this function is going to take a note as an argument
         //get all the notes from the db.json
         //rewrite the notes with the new addtion back to the db.json
+        note.id = uuid.v4();
+        return this.readFile().then((dbNotes) => {
+            let parsedDbNotes;
+            try {
+                parsedDbNotes = [].concat(JSON.parse(dbNotes))
+            } catch (error) {
+                parsedDbNotes = [];
+            }
+            parsedDbNotes.push(note);
+            return this.writeFile(parsedDbNotes);
+        })
     }
 
     deleteNoteById(id) {

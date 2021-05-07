@@ -17,6 +17,7 @@ app.get("/api/notes", (request, response) => {
 //POST "api/notes" add a note to the db.json
 app.post("/api/notes", (request, response) => {
     console.log("post request made")
+    dbFunctionality.addNewNote(request.body).then((note) => response.json(note))
 })
 
 //DELETE "/api/notes" will delete a  note from the db.json file
