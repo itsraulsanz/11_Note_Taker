@@ -3,7 +3,7 @@
 const express = require('express');
 
 // Sets an initial port
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 
 // Tells node that we are creating an "express" server
 const app = express();
