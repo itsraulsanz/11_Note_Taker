@@ -52,18 +52,15 @@ class dbFunctionality {
         //this function is going to get all the notes
         //then its going filtered them and only keep the notes without the id passed in
         //then it is going to write the filtered notes to the db.json file
-        return this.readFile().then((dbNotes) => {
+        return this.readFile().then((noteId) => {
             let parsedDbNotes;
-            let noteId = (request.params.id).toString();
             try {
-                parsedDbNotes = [].concat(JSON.parse(dbNotes))
+                parsedDbNotes = parsedDbNotes().filter(note => note.id !== noteId);
             } catch (error) {
                 parsedDbNotes = [];
             }
-            parsedDbNotes = parsedDbNotes.filter(selected => {
-                return selected.id != noteId;
-            })
-            return parsedDbNotes();
+            parsedDbNotes.push(noteId);
+            return this.writeFile(parsedDbNotes);
         })
     }
 }
