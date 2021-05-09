@@ -23,6 +23,6 @@ app.post("/api/notes", (request, response) => {
 //DELETE "/api/notes" will delete a  note from the db.json file
 app.delete("/api/notes/:id", (request, response) => {
     console.log("Delete request made")
-    dbFunctionality.deleteNoteById(request.params).then((id) => response.json(id));
+    dbFunctionality.deleteNoteById(request.params.id).then((id) => response.json(id));
 })
 };
