@@ -1,11 +1,11 @@
 # Note Taker
   
-  ## Table of contents
+  ## Table of contents  
+  - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
   - [License](#license)
   - [Contributing](#contributing)
-  - [Tests](#tests)
   - [Questions](#questions)
 
   ## Description
@@ -17,7 +17,8 @@
   ## Usage
   A landing page will be presented with a link to the notes page. When you click on the button, a page will be presented with the existing notes listed in the left-hand column, plus empty fields to enter a new note title and the note’s text in the right-hand column. When title and text are entered, the save icon appears in the navigation at the top of the page and once it's clicked, the new note entered is saved and appears in the left-hand column with the other existing notes. Each note can be deleted clicking the delete icon.
 
-  (./Assets/11-express-homework-demo-01.png)
+  <img src="./assets/home.png">
+  <img src="./assets/notes.png">
 
   ## License
   ![Github license](https://img.shields.io/badge/license-MIT-blue.svg)
